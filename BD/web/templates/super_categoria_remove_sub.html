@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>remove Super-Categoria - Flask</title>
+</head>
+<body>
+    <style>
+        body{
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url(https://external-preview.redd.it/lyugLb90DV5db86bTGyVMbJvQ5dn9naowFPcGke7LXo.jpg?auto=webp&s=da70b075453945912c91f108b3003ab5ead8336d);
+        }
+        h3{
+            color: white;
+            text-align: center;
+        }
+        p{
+            color: white;
+        }
+        a{
+            color: white;
+        }
+        div {
+            text-align: center;
+        }
+    </style>
+    <h3>Remove Super-Categoria</h3>
+    <div>
+        <form action="remove_sub" method="post">
+            <p> Super-Categoria: {{ params.get("categoria") }} </p>
+            <a> Subcategoria: </a>
+            {% if cursor %}
+            <select name="subcategoria">
+                {% for record in cursor %}
+                <option value="{{ record[0] }}"> {{ record[0] }}</option>
+                {% endfor %}
+            </select>
+            {% endif %}
+            <input type="submit" value="Remover"/>
+        </form>
+    </div>
+</body>
+</html>

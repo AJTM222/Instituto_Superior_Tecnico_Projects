@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Insert Super-Categoria - Flask</title>
+</head>
+<body>
+    <style>
+         body{
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-image: url(https://external-preview.redd.it/lyugLb90DV5db86bTGyVMbJvQ5dn9naowFPcGke7LXo.jpg?auto=webp&s=da70b075453945912c91f108b3003ab5ead8336d);
+            }
+          
+            h3{
+                color: white;
+                text-align: center;
+            }
+            p{
+                color: white;
+            }
+            a{
+                color: white;
+            }
+            div {
+                text-align: center;
+            }
+    </style>
+    <h3>Insert Super-Categoria</h3>
+    <div>
+        <form action="insert_sub" method="post">
+            <a> Super-Categoria: </a>
+            <input type="text" name="categoria" value = "{{ params.get('categoria') }}"/>
+            {% if cursor %}
+            <select name="subcategoria">
+                {% for record in cursor %}
+                <option value="{{ record[0] }}"> {{ record[0] }}</option>
+                {% endfor %}
+            </select>
+            {% endif %}
+            <input type="submit" value="Inserir"/>
+        </form>
+    </div>    
+</body>
+</html>

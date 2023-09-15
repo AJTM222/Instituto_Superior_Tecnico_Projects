@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Insert Retalhista - Flask</title>
+</head>
+<body>
+    <style>
+        body{
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url(https://external-preview.redd.it/lyugLb90DV5db86bTGyVMbJvQ5dn9naowFPcGke7LXo.jpg?auto=webp&s=da70b075453945912c91f108b3003ab5ead8336d);
+            }
+
+        h3{
+            color: white;
+            text-align: center;
+        }
+        label{
+            margin: 0;
+            color: white;
+        }
+        div {
+            text-align: center;
+        }
+        label{
+            color: white;
+        }
+    </style>
+    <h3> Inserir Retalhista</h3>
+    <div>
+        <form action="insert" method="post">
+            <label>Tin</label>
+            <input type="text" name="tin" />
+
+            <label>Nome</label>
+            <input type="text" name="nome"/>
+            
+            <input type="submit" value="Inserir"/>
+        </form>
+    </div>
+</body>
+</html>

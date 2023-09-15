@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>List Super-Categorias - Flask</title>
+</head>
+<body style="padding:20px">
+    <style>
+         body{
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-image: url(https://external-preview.redd.it/lyugLb90DV5db86bTGyVMbJvQ5dn9naowFPcGke7LXo.jpg?auto=webp&s=da70b075453945912c91f108b3003ab5ead8336d);
+            }
+            tr{
+                color: rgb(11, 11, 204);
+            }
+            td{
+                background-color: rgb(255, 127, 67);
+                color: black;
+            }
+            table{
+                background-color: rgb(185, 74, 0);
+                border-color: black;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            th{
+                color: white;
+            }
+            h1{
+                color: white;
+                text-align: center;
+            }
+            div {
+                text-align: center;
+            }
+    </style>
+{% if cursor %}
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>Super-Categorias</th>
+                <th>Listar Subcategorias</th>
+                <th>Adicionar Subcategoria</th>
+                <th>Remover Subcategoria</th>
+                <th>Remover Super-Categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in cursor %}
+            <tr>
+                <td>{{ record[0] }}</td>
+                <td><a href="super_categorias/listar_sub_categorias?categoria={{ record[0] }}">Listar</a></td>
+                <td><a href="super_categorias/insert_sub_form?categoria={{ record[0] }}">Adicionar</a></td>
+                <td><a href="super_categorias/remove_sub_form?categoria={{ record[0] }}">Remover</a></td>
+                <td><a href="super_categorias/remove?categoria={{ record[0] }}">Remover</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>
+        <div>
+            <button onclick="window.location.href='super_categorias/insert_form'">Inserir</button>
+        </div>
+    </p>
+    <p>
+        <div>
+            <button onclick="window.location.href='menu'">Menu Inicial</button>
+        </div>
+    </p>
+    {% else %}
+    <p> Erro: ao obter dados da base de dados!</p>
+{% endif %}
+</body>
+</html>
